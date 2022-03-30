@@ -65,7 +65,7 @@
 						<div class="inner">
 							<h1>Essential Concepts and Definitions</h1>
 							<span class="image main"><img src="../images/Group3.png" alt="" /></span>
-							<h2>Version 1.0 - Updated 23 March 2022</h2>
+							<h2>Version 1.0 - Updated 30 March 2022</h2>
 							<b>
                                 <p>Quizlet Flash Cards - <a href="https://quizlet.com/_b8xkyl?x=1qqt&i=4c0ylj" target="_blank">https://quizlet.com/_b8xkyl?x=1qqt&i=4c0ylj</a></p>
                             </b>
@@ -165,6 +165,59 @@
 							
 							<b>RZ gate</b> 
 							<p>On the Bloch sphere, this gate corresponds to rotating the qubit state around the z axis by the given angle. In IBM Quantum Composer, the default value for angle is π/2.</p>
+						
+							<b>CNOT (CX)</b>
+							<p>Applied to a pair of qubits. One acts as the control qubit (this is the one with the little dot). The other acts as the target qubit (with the big circle that has a + inside it). It does a "NOT" on the target if the control is 1, and does nothing otherwise.</p>
+
+							<b>CZ</b>
+							<p>Looks a like a swap gate, but instead of two X's has two dots (controls). Can also look like a CX gate, with one control and the target is a Z gate. Can be composed on a circuit with a sequence of H, CX, H gates.</p>
+
+							<b>Bell State</b>
+							<p>50% probability of being measured in the state |00>, and 50% chance of being measured in the state |11>. 0% chance of being measured in the states |01> or |10>. This combined state cannot be written as two separate qubit states. Although our qubits are in superposition, measuring one will tell us the state of the other and collapse its superposition. Statevector of 0.707. Hadamard and then CNOT gate required to create a bell state.</p>
+
+							<b>CCNOT (CCX)</b>
+							<p>Toffoli gate. Two controls, one target. Can be made by adding a control to a CX gate or using the "mct" method e.g. qc.mct([0,1], 2). If the control qubits are both set to 1, it inverts the third qubit, otherwise all qubits stay the same.</p>
+
+							<b>Gates that can be composed of other gates</b>
+							<p>X = HXH, Z = HXH, HSH = HTTH</p>
+
+							<b>Phase gates that can be composed of other gates</b>
+							<p>S = TT (S = pi/2, T = pi/4), Z = SS (Z = pi), Z = TTTT</p>
+
+							<b>BasicAer Simulators</b>
+							<p>"qasm_simulator", "statevector_simulator", "unitary_simulator". BasicAer is an older version of Aer (the larger and fancier simulation package).</p>
+
+							<b>Barrier</b>
+							<p>Used as a visual tool. Also an instruction for transpiler to stop it from cancelling out gates or collapsing gates into a single operation. Does not add to depth.</p>
+
+							<b>plot_bloch_vector vs. plot_bloch_multivector</b>
+							<p>plot_bloch_vector needs specific corordinates (cartesian or spherical).<br>
+							plot_bloch_multivector needs a Statevector or DensityMatrix.<br>
+							Neither can visualize entangled states. Use plot_state_qsphere instead.</p>
+
+							<b>Depth</b>
+							<p>Is the critical path, the longest path between data input and output. It's a masure of how many "layers" of quantum gates, exectued in parallel, it takes to complete the computation defined by the circuit. This roughly corresponds to the amount of time it takes the quantum computer to execute the circuit. Go to website for Tetris method.</p>
+
+							<b>Gate map vs Error map</b>
+							<p>Gate map shows the connections between nodes. Error map shows connections and error rate.</p>
+
+							<b>Execute vs run</b>
+							<p>"Execute" does both transpile and assemble.
+							"Run" only assembles (therefore needs to be transpiled first). 
+							e.g. transpiled = transpile(qc, backend=backend)<br>
+							job = backend.run(transpiled)</p>
+
+							<b>Job monitor</b>
+							<p>"job.wait_for_final_state()" better than "job.status()".<br>
+							Or import from qiskit.tools, "job_monitor(job)".<br>
+							Or import from qiskit.tools.jupyter, "% qiskit_job_watcher", which pops up a widget.</p>
+
+							<b>Qiskit version</b>
+							<p>"qiskit.__version__" - only version of terra package.<br>
+							"qiskit.__qiskit_version__" - versions of all packages (recommended).</p>
+						
+						
+						
 						</div>
 					</div>
 
