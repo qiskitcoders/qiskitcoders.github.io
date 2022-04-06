@@ -65,7 +65,7 @@
 						<div class="inner">
 							<h1>Essential Concepts and Definitions</h1>
 							<span class="image main"><img src="../images/Group3.png" alt="" /></span>
-							<h2>Version 1.0 - Updated 30 March 2022</h2>
+							<h2>Version 1.0 - Updated 06 April 2022</h2>
 							<b>
                                 <p>Quizlet Flash Cards - <a href="https://quizlet.com/_b8xkyl?x=1qqt&i=4c0ylj" target="_blank">https://quizlet.com/_b8xkyl?x=1qqt&i=4c0ylj</a></p>
                             </b>
@@ -219,8 +219,64 @@
 							<p>"qiskit.__version__" - shows only the version of the terra package.<br>
 							"qiskit.__qiskit_version__" - shows versions of all packages (recommended).</p>
 						
+							<b>Classical Register</b>
+							<p>Consists of bits that can be written to and read within the coherence time of the quantum circuit</p>
 						
+							<b>Quantum Register</b>
+							<p>A collection of qubits on which gates and other operations act.</p>
+
+							<b>Fidelities (credit: Kory Becker)</b>
+							<p>Quantum fidelity allows you to obtain a measurement of the amount of distance between two quantum gates, states, or processes.<br>
+								A formal definition states that quantum fidelity is a measure of how “close” two quantum states are, in that one state will effectively identify as another.<br>
+								As a rule of thumb, fidelity is simply measuring the amount of “noise” that you can expect between your code and actual physical quantum hardware.<br>
+								When a measurement for quantum fidelity is a value of 1, this refers to two states that are equivalent. Similarly, when considering only global phase between two operators using the same gate calculations, the result is an average gate fidelity and process fidelity of 1, since both average gate and process fidelities deal with global phase, compared to state fidelity which measures a single state vector.</p>
 						
+							<b>State fidelity</b>
+							<p>Measures between two quantum states (such as statevectors or density matrix objects). Does not work with operators.</p>	
+
+							<b>Process fidelity</b>
+							<p>Measures the noise within a quantum channel or operator. Does work with operators.</p>
+
+							<b>Average gate fidelity</b>
+							<p>Measures the fidelity of multiple gates within a quantum channel. Note, average gate fidelity requires the channel and target operator to have the same dimensions and input/output dimensions. Does work with operators.</p>
+
+							<b>.to_gate() method</b>
+							<p>Creates a custom gate out of a circuit.</p>
+
+							<b>.append() method</b>
+							<p>Append one or more instructions to the end of the circuit, modifying the circuit in place.</p>
+
+							<b>.compose() method</b>
+							<p>Used to combine circuits with different number of qubits. If same number of qubits, use Python's addition operator. Note: You can combine quantum circuits together inline and perform operations. e.g. (qc1+qc2).draw()</p>
+
+							<b>Density Matrix</b>
+							<p>An alternative way of expressing quantum states, that allows for pure states and mixed states. Mixed states are those that consist of statistical ensembles of different quantum states. This means that, unlike pure states, mixed states cannot be represented as linear superpositions of normalized state vectors.</p>
+
+							<b>qasm_simulator</b>
+							<p>Allows ideal and noisy multi-shot execution of qiskit circuits and returns counts or memory. Allows for measurements, reset, conditionals.</p>
+
+							<b>statevector_simulator</b>
+							<p>Allows ideal single-shot execution of qiskit circuits and returns the final statevector of the simulator after application. Allows for measurements, reset, conditionals.</p>
+							
+							<b>unitary_simulator</b>
+							<p>Allows ideal single-shot execution of qiskit circuits and returns final unitary matrix of the circuit itself. Allows only gates. Circuit cannot contain measure or reset operations for this backend.</p>
+
+							<b>Converting a quantum circuit to and from QASM</b>
+							<p>.to_qasm() or .qasm() - to convert to QASM.<br>
+								.from_qasm_str() or .from_qasm_file() - to convert from QASM.</p>
+
+							<b>How to optimize a circuit?</b>
+							<p>Set the argument for the optimization_level to a high number. This tells the transpiler how aggressively to optimize circuit. The default level is 1 which optimizes by collapsing adjacent gates. The highest level is 3 in which the transpiler will use noise adaptive qubit mapping, gate cancellation using commutativity rules, and unitary synthesis. 0 means no optimization is done, other than mapping the circuit to the backend.</p>
+
+							<b>Bloch sphere</b>
+							<p>Visualization for plotting any single qubit state on the surface of a sphere. It's easy to confuse the qubits statevector with its Bloch vector. Remember the statevector holds the amplitudes for the two states a qubit can be in. The Bloch vector is a visualization tool that maps the 2D, complex statevector onto real, 3D space.</p>
+
+							<b>Q-sphere</b>
+							<p>Visualization for multiqubit states. The Q-sphere displays the amplitudes of each computational basis state. Amplitudes are complex numbers. The size of each blob represents the magnitude of that complex number. The blob at the top represents the state 0, and the blob on the bottom represents the state 1. For general qubit states, the polar angle of the blob is proportional to its hamming distance from the the all zero state, with the all one state on the bottom.</p>
+
+							<b>Bloch sphere vs Q-sphere</b>
+							<p>A bloch sphere can only visualize one qubit and it gives you a local view. A q-sphere can visualize up to 5 qubits and it gives you a global view, a whole picture of the quantum state.</p>
+
 						</div>
 					</div>
 
