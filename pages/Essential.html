@@ -277,6 +277,29 @@
 							<b>Bloch sphere vs Q-sphere</b>
 							<p>A bloch sphere can only visualize one qubit and it gives you a local view. A q-sphere can visualize up to 5 qubits and it gives you a global view, a whole picture of the quantum state.</p>
 
+							<b>Measures</b>
+							<p>Are placed at the end of the circuit because qubit states collapse once they are measured. Measures are not reversible (unitary) so circuits containing them are not invertible.</p>
+
+							<b>.measure_all()</b>
+							<p>Adds an additional classical register.</p>
+
+							<b>.measure(qubit, cbit)</b>
+							<p>Takes only two arguments. A list of qubits to measure and a list of classical bits to measure to.</p>
+
+							<b>plot_histogram()</b>
+							<ol><li>Add measurements</li>
+								<li>Run the circuit through a simulator</li>
+								<li>Get result, get counts</li>
+								<li>plot_histogram(counts)</li></ol>
+								Keep in mind additional arguments like legends, colors of bars and bar labels are possible.
+							
+							<b>Difference between a gate and an instruction?</b>
+							<p>A gate is unitary (reversible). Instructions can contain non-unitary parts like resets or measures.</p>
+
+							<b>Phase gate</b>
+							<p>The P-gate is parameterised, that is, it needs a number (Φ). The P-gate performs a rotation of Φ around the Z-axis direction. Z-gate is a special case of the P-gate with Φ = π. S-gate(√z) is a P-gate, with Φ = π/2. T-gate(∜z) is a P-gate, with Φ = π/4.</p>
+
+	
 						</div>
 					</div>
 
