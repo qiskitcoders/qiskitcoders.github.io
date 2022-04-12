@@ -176,7 +176,7 @@
 							<p>50% probability of being measured in the state |00>, and 50% chance of being measured in the state |11>. 0% chance of being measured in the states |01> or |10>. This combined state cannot be written as two separate qubit states. Although our qubits are in superposition, measuring one will tell us the state of the other and collapse its superposition. Statevector of 0.707. Hadamard and then CNOT gate required to create a bell state.</p>
 
 							<b>CCNOT (CCX)</b>
-							<p>Toffoli gate. Two controls, one target. Can be made by adding a control to a CX gate or using the "mct" method e.g. qc.mct([0,1], 2). If the control qubits are both set to 1, it inverts the third qubit, otherwise all qubits stay the same.</p>
+							<p>Toffoli gate. Two controls, one target. Can be made by adding a control to a CX gate or using the "mct" method e.g. qc.mct([0,1], 2). If the control qubits are both set to 1, it inverts the third qubit, otherwise all qubits stay the same. Another way to create this gate is with the .ccx() method. The first two arguments are the controls, and the third argument is the target. E.g. .ccx(0,2,1) places the controls on qubit 0 and 2, and the target is on qubit 1.</p>
 
 							<b>Gates that can be composed of other gates</b>
 							<p>X = HXH, Z = HXH, HSH = HTTH</p>
@@ -232,13 +232,13 @@
 								When a measurement for quantum fidelity is a value of 1, this refers to two states that are equivalent. Similarly, when considering only global phase between two operators using the same gate calculations, the result is an average gate fidelity and process fidelity of 1, since both average gate and process fidelities deal with global phase, compared to state fidelity which measures a single state vector.</p>
 						
 							<b>State fidelity</b>
-							<p>Measures between two quantum states (such as statevectors or density matrix objects). Does not work with operators.</p>	
+							<p>state_fidelity(). Measures between two quantum states (such as statevectors or density matrix objects). Does not work with operators.</p>	
 
 							<b>Process fidelity</b>
-							<p>Measures the noise within a quantum channel or operator. Does work with operators.</p>
+							<p>process_fidelity(). Measures the noise within a quantum channel or operator. Does work with operators.</p>
 
 							<b>Average gate fidelity</b>
-							<p>Measures the fidelity of multiple gates within a quantum channel. Note, average gate fidelity requires the channel and target operator to have the same dimensions and input/output dimensions. Does work with operators.</p>
+							<p>average_gate_fidelity(). Measures the fidelity of multiple gates within a quantum channel. Note, average gate fidelity requires the channel and target operator to have the same dimensions and input/output dimensions. Does work with operators.</p>
 
 							<b>.to_gate() method</b>
 							<p>Creates a custom gate out of a circuit.</p>
